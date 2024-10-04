@@ -50,9 +50,9 @@ const crearMenuLat = ()=>{menuLateral.innerHTML = `
 const menuModal = document.querySelector('#menu')
 const crearMenuModal = ()=>{menuModal.innerHTML = `
     <ul class="fixed top-16 bg-gradient-to-br from-cyan-950 to-black/95 rounded-lg">
-        <li class="my-4 hover:bg-cyan-800 rounded-md transition duration-150 ease-in-out mb-2 mx-4"><a href="/dashboard/admin/vehiculos/" class="font-mono font-bold text-white px-1 py-1 uppercase">Vehiculos</a></li>
-        <li class="my-4 hover:bg-cyan-800 rounded-md transition duration-150 ease-in-out mb-2 mx-4"><a href="/dashboard/admin/rutas/" class="font-mono font-bold text-white px-1 py-1 uppercase">Rutas</a></li>
-        <li class="my-4 hover:bg-cyan-800 rounded-md transition duration-150 ease-in-out mb-2 mx-4"><a href="/dashboard/admin/mantenimiento/" class="font-mono font-bold text-white px-1 py-1 uppercase">Mantenimiento</a></li>
+        <li class="my-4 hover:bg-cyan-800 rounded-md transition duration-150 ease-in-out mb-2 mx-4"><a href="/dashboard/users/vehiculos/" class="font-mono font-bold text-white px-1 py-1 uppercase">Vehiculos</a></li>
+        <li class="my-4 hover:bg-cyan-800 rounded-md transition duration-150 ease-in-out mb-2 mx-4"><a href="/dashboard/users/rutas/" class="font-mono font-bold text-white px-1 py-1 uppercase">Rutas</a></li>
+        <li class="my-4 hover:bg-cyan-800 rounded-md transition duration-150 ease-in-out mb-2 mx-4"><a href="/dashboard/users/mantenimiento/" class="font-mono font-bold text-white px-1 py-1 uppercase">Mantenimiento</a></li>
     </ul>
     `
 }
