@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@mapbox/polyline"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Boss Transport | Rutas | Ver</title>
+</head>
+<body class="bg-gradient-to-br from-cyan-950 to-black/95 min-h-screen">
+    <!--barra de navegacion-->
+    <div class="h-16">
+        <nav id="navegacion" class="fixed top-0 right-0 left-0 h-16 bg-gradient-to-br from-cyan-900 to-cyan-600 mx-4 rounded-lg z-[2000]"></nav>      
+    </div>
+
+    <!--menu lateral izquierdo-->
+    <div id="menu-lateral" class="flex-row min-h-full max-h-full ms-auto me-auto"></div>
+
+    <!--formulario-->
+    <div class="border-slate-300/10 w-full flex flex-row justify-center md:pl-52">
+        <form id="formulario" class="flex flex-col md:gap-4 bg-cyan-900 p-4 rounded-lg text-sm shadow-xl my-10 md:mr-10">
+            <h2 class="font-bold font-mono text-center text-white">Ver ruta</h2>
+            <div class="gap-2 md:grid grid-cols-2">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Fecha y hora:</label>
+                    <input
+                        type="datetime-local"
+                        id="fecha-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full ">
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Origen:</label>
+                    <input
+                        type="text"
+                        id="origen-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">       
+                </div>    
+            </div>
+
+            <div class="gap-2 md:grid grid-cols-2">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Destino:</label>
+                    <input
+                        type="text"
+                        id="destino-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Distancia aproximada:</label>
+                    <input
+                        type="number"
+                        id="distancia-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">                            
+                </div>    
+            </div>
+
+            <div class="gap-2 md:grid grid-cols-3">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Tiempo estimado:</label>
+                    <input
+                        type="number"
+                        id="tiempo-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full"> 
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Vehiculo:</label>
+                    <input
+                        type="text"
+                        id="vehiculo-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">                           
+                </div>
+
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Km actual:</label>
+                    <input
+                        type="number"
+                        id="km-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">                             
+                </div>  
+            </div>
+    
+            <div class="gap-2 md:grid">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Detalles:</label>
+                    <textarea name="" id="detalles-input" class="rounded-lg p-2 focus:outline-blue-600 w-full"></textarea>
+                </div>
+            </div>
+
+            <div class="gap-2 md:grid grid-cols-3">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Fecha y hora cierre:</label>
+                    <input
+                        type="datetime-local"
+                        id="fecha-final-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full"> 
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Estado:</label>
+                    <select name="" id="estado-cierre-input" class="rounded-lg p-2 focus:outline-blue-600 w-full">
+                        <option value="">Seleccione</option>
+                        <option value="Ocupado">Ocupado</option>
+                        <option value="Disponible">Disponible</option>
+                    </select>                              
+                </div>
+
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Km final:</label>
+                    <input
+                        type="number"
+                        id="km-final-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">                             
+                </div>
+            </div>
+    
+            <div class="gap-2 md:grid">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Detalles:</label>
+                    <textarea name="" id="detalles-final-input" class="rounded-lg p-2 focus:outline-blue-600 w-full"></textarea>
+                </div>
+            </div>
+
+            <input type="hidden" name="id" id="id" value="">
+            <input type="hidden" name="estado" id="estado-input" value="En uso">
+            <input type="hidden" name="usuario" id="usuario-input">
+
+            <button id="exportarPDF" class="bg-slate-950 px-4 rounded-lg font-bold font-mono text-white hover:bg-blue-400 py-2 my-2 max-md:mt-4 transition duration-150 ease-in-out border-2 border-blue-400">Exportar / Imprimir</button>
+        </form>
+    </div>
+
+    
+
+    <!--menu modal-->
+    <div id="menu" class="fixed p-4 self-start text-lg hidden z-[1000]"></div>
+    <div id="menu2" class="text-lg rounded-lg h-32 w-32 fixed top-16 right-10 bottom-0 hidden z-[1000]"></div>
+    
+    <script src="../components/nav.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="./js/verRuta.js"></script>
+</body>
+</html>
