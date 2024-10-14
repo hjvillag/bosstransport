@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Boss Transport | Mantenimiento | Ver</title>
+</head>
+<body class="bg-gradient-to-br from-cyan-950 to-black/95 min-h-screen">
+    <!--barra de navegacion-->
+    <div class="h-16">
+        <nav id="navegacion" class="fixed top-0 right-0 left-0 h-16 bg-gradient-to-br from-cyan-900 to-cyan-600 mx-4 rounded-lg"></nav>      
+    </div>
+
+    <!--menu lateral izquierdo-->
+    <div id="menu-lateral" class="flex flex-row min-h-full max-h-full ms-auto me-auto"></div>
+
+    <!--contenido-->
+    <div class="border-slate-300/10 w-screen flex flex-row justify-center md:pl-52">
+        <form id="formulario" class="flex flex-col md:gap-4 bg-cyan-900 p-4 rounded-lg text-sm shadow-xl my-10">
+            <h2 class="font-bold font-mono text-center text-white">Consulta mantenimiento</h2>
+            <div class="gap-2 md:grid grid-cols-2">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Marca:</label>
+                    <input
+                        type="text"
+                        id="marca-input"
+                        autocomplete="off"
+                        placeholder="Toyota"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Modelo:</label>
+                    <input
+                        type="text"
+                        id="modelo-input"
+                        autocomplete="off"
+                        placeholder="Corolla"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">       
+                </div>    
+            </div>
+
+            <div class="gap-2 md:grid grid-cols-2">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Año:</label>
+                    <input
+                        type="number"
+                        id="año-input"
+                        autocomplete="off"
+                        placeholder="2024"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Placa:</label>
+                    <input
+                        type="text"
+                        id="placa-input"
+                        autocomplete="off"
+                        placeholder="ABC1234"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">                            
+                </div>    
+            </div>
+
+            <div class="gap-2 md:grid grid-cols-2">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Fecha programada:</label>
+                    <input
+                        type="date"
+                        id="fechaProgramada-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">                            
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Mantenimiento:</label>
+                    <select name="" id="mantenimiento-input" class="rounded-lg p-2 focus:outline-blue-600 w-full">
+                        <option value="">Seleccione</option>
+                        <option value="Preventivo">Preventivo</option>
+                        <option value="Correctivo">Correctivo</option>
+                    </select>
+                </div>    
+            </div>
+    
+            <div class="gap-2 md:grid">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Detalles:</label>
+                    <textarea name="" id="detalles-input" class="rounded-lg p-2 focus:outline-blue-600 w-full"></textarea>
+                </div>
+            </div>
+
+            <div class="gap-2 md:grid grid-cols-2">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Fecha de cierre:</label>
+                    <input
+                        type="date"
+                        id="fechaCierre-input"
+                        autocomplete="off"
+                        class="rounded-lg p-2 focus:outline-blue-600 w-full">                            
+                </div>
+                    
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Resultado:</label>
+                    <select name="" id="resultado-input" class="rounded-lg p-2 focus:outline-blue-600 w-full">
+                        <option value="">Seleccione</option>
+                        <option value="Exitoso">Exitoso</option>
+                        <option value="No exitoso">No exitoso</option>
+                    </select>
+                </div>    
+            </div>
+
+            <div class="gap-2 md:grid">
+                <div>
+                    <label for="" class="text-white font-bold font-mono">Detalles:</label>
+                    <textarea name="" id="detallesCierre-input" class="rounded-lg p-2 focus:outline-blue-600 w-full"></textarea>
+                </div>
+            </div>
+
+            <input type="hidden" name="id" id="id" value="">
+            
+            <button id="exportarPDF" class="bg-slate-950 px-4 rounded-lg font-bold font-mono text-white hover:bg-blue-400 py-2 my-2 max-md:mt-4 transition duration-150 ease-in-out border-2 border-blue-400">Exportar / Imprimir</button>
+        </form>
+    </div>
+
+    <!--menu modal-->
+    <div id="menu" class="p-4 self-start text-lg hidden"></div>
+    <div id="menu2" class="text-lg rounded-lg h-32 w-32 fixed top-16 right-10 bottom-0 hidden"></div>
+
+    <script src="../components/nav.js"></script>
+    <script src="./js/verMantenimiento.js"></script>
+
+</body>
+</html>

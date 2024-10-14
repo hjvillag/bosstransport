@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <title>Boss Transport</title>
+</head>
+<style>
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .fade-in.visible {
+        opacity: 1;
+    }
+</style>
+<body class="bg-gradient-to-br from-cyan-950 to-black/95 h-screen">   
+    <div class="h-16">
+        <nav id="navegacion" class="fixed top-0 right-0 left-0 h-16 bg-gradient-to-br from-cyan-900 to-cyan-600 mx-4 rounded-lg">
+            <div class="h-16 mx-auto flex items-center px-4 justify-between">
+                <a href="/" class="text-neutral-50 font-bold font-mono text-2xl italic">Boss Transport</a>
+                <div class="flex gap-4 max-md:hidden">
+                    <a id="seccion" href="#features" class="text-white font-bold py-2 px-4 hover:bg-cyan-800 rounded-lg transition ease-in-out">Funcionalidades</a>
+                    <a id="seccion" href="#about" class="text-white font-bold py-2 px-4 hover:bg-cyan-800 rounded-lg transition ease-in-out">Nosotros</a>
+                    <a id="seccion" href="#contact" class="text-white font-bold py-2 px-4 hover:bg-cyan-800 rounded-lg transition ease-in-out">Contacto</a>
+                    <a href="/login/" class="text-white font-bold py-2 px-4 bg-cyan-800 hover:bg-cyan-500 rounded-lg transition ease-in-out">Login</a>
+                </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-10 h-10 text-white cursor-pointer p-2 rounded-lg hover:bg-blue-400 md:hidden">
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                </svg>
+            </div>
+        </nav>       
+    </div>
+
+    <div class="pt-16 pb-16 h-auto px-4 max-w-7xl mx-auto justify-center items-center md:flex gap-20">
+        <div class="pl-4 py-4 md:hidden">
+            <img src="/img/home.svg" alt="imagen home">
+        </div>
+        <div id="message" class="font-bold font-sans text-center text-white text-lg flex flex-col gap-4 p-4 rounded-lg lg:w-2/4 shadow-xl bg-gradient-to-br from-cyan-800 to-cyan-600 fade-in">
+            <h1 class="text-4xl">Bienvenidos a Boss Transport</h1>
+            <p>Administra y gestiona tu flota de vehículos de manera eficiente.</p>
+            <a id="seccion" href="#features" class="bg-cyan-900 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-500 transition ease-in-out">Descubre nuestras funcionalidades</a>
+        </div>
+        <div class="pl-4 max-md:hidden">
+            <img src="/img/home.svg" alt="imagen home" class="size-3/4">
+        </div>
+    </div>
+
+    <section id="features" class="py-16 bg-cyan-800 text-white fade-in">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Funcionalidades</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-cyan-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Registro de Flotas de Vehiculos</h3>
+                    <p>Inscribe los vehiculos de tu flota para una mejor administración.</p>
+                </div>
+                <div class="bg-cyan-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Control de Rutas</h3>
+                    <p>Planifica y optimiza rutas para tus vehículos de manera eficiente.</p>
+                </div>
+                <div class="bg-cyan-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Gestión de Mantenimiento</h3>
+                    <p>Monitorea y programa el mantenimiento de tu flota para asegurar su buen estado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gradient-to-br from-gray-800 to-gray-600 text-white fade-in">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Sobre Nosotros</h2>
+            <p class="text-center">En Boss Transport, nos dedicamos a ofrecer soluciones de transporte de alta calidad, adaptadas a las necesidades de nuestros clientes.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-gradient-to-br from-cyan-950 to-black/95 text-white fade-in">
+        <div class="max-w-lg mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Contáctanos</h2>
+            <form id="contact-form">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-bold mb-2">Nombre</label>
+                    <input type="text" id="name" name="user_name" class="w-full p-2 rounded-lg bg-gray-700 text-white">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-bold mb-2">Email</label>
+                    <input type="email" id="email" name="user_email" class="w-full p-2 rounded-lg bg-gray-700 text-white">
+                </div>
+                <div class="mb-4">
+                    <label for="user_message" class="block text-sm font-bold mb-2">Mensaje</label>
+                    <textarea id="user-message" name="user_message" class="w-full p-2 rounded-lg bg-gray-700 text-white"></textarea>
+                </div>
+                <button disabled type="submit" id="form-btn" class="bg-gray-700 text-white font-bold py-2 mb-4 px-4 rounded-lg cursor-not-allowed transition ease-in-out">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="menu-modal" class="text-lg rounded-lg h-60 fixed top-16 right-10 bottom-0 hidden"></div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

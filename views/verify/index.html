@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Boss Transport || Verificacion</title>
+</head>
+<body class="bg-gradient-to-br from-cyan-950 to-black/95 h-screen">   
+    <div class="h-16">
+        <nav id="navegacion" class="fixed top-0 right-0 left-0 h-16 bg-gradient-to-br from-cyan-900 to-cyan-600 mx-4 rounded-lg">
+            <div class="h-16 mx-auto flex items-center px-4 justify-between">
+                <a href="/" class="text-neutral-50 font-bold font-mono text-2xl italic">Boss Transport</a>
+                <a href="/login/" class="text-white font-bold py-2 px-4 hover:bg-cyan-800 rounded-lg transition ease-in-out">Login</a>
+                
+            </div>
+        </nav>       
+    </div>
+
+    <div class="pt-16 pb-16 h-auto px-4 max-w-7xl mx-auto justify-center items-center md:flex gap-20">
+        <div class="pl-4 py-4 md:hidden">
+            <img src="/img/verified.svg" alt="imagen verified">
+        </div>
+        <div id="message" class="font-bold font-sans text-center text-white text-lg flex flex-col gap-4 p-4 rounded-lg lg:w-2/4 shadow-xl bg-gradient-to-br from-cyan-900 to-cyan-700"></div>
+        <div class="pl-4 max-md:hidden">
+            <img src="/img/verified.svg" alt="imagen verified" class="size-3/4">
+        </div>
+    </div>
+    <script src="js/verify.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Boss Transport | Home</title>
+</head>
+<body class="bg-gradient-to-br from-cyan-950 to-black/95 min-h-screen">
+    <!--barra de navegacion-->
+    <div class="h-16">
+        <nav id="navegacion" class="fixed top-0 right-0 left-0 h-16 bg-gradient-to-br from-cyan-900 to-cyan-600 mx-4 rounded-lg"></nav>      
+    </div>
+
+    <!--menu lateral izquierdo-->
+    <div id="menu-lateral" class="flex flex-row min-h-full max-h-full ms-auto me-auto"></div>
+
+    <!--contenido-->
+    <div class="md:pl-48 md:grid grid-cols-3 gap-4 px-10 py-5">
+        <div class="w-full h-3/4 mb-8">
+            <canvas id="grafico-1" class=""></canvas>
+        </div>
+        <div>
+            <div class="w-full mb-8">
+                <canvas id="grafico-2"></canvas>
+            </div>
+            <div class="w-full">
+                <canvas id="grafico-3"></canvas>
+            </div>
+        </div>
+        <div class="w-full h-3/4">
+            <canvas id="grafico-4"></canvas>
+        </div>
+    </div>
+
+    <!--menu modal-->
+    <div id="menu" class="p-4 self-start text-lg hidden"></div>
+    <div id="menu2" class="text-lg rounded-lg h-32 w-32 fixed top-16 right-10 bottom-0 hidden"></div>
+    
+    <script src='../../components/admin/nav.js'></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Boss Transport | Mantenimiento</title>
+</head>
+<body class="bg-gradient-to-br from-cyan-950 to-black/95 min-h-screen">
+    <!--barra de navegacion-->
+    <div class="h-16">
+        <nav id="navegacion" class="fixed top-0 right-0 left-0 h-16 bg-gradient-to-br from-cyan-900 to-cyan-600 mx-4 rounded-lg"></nav>      
+    </div>
+
+    <!--menu lateral izquierdo-->
+    <div id="menu-lateral" class="flex flex-row min-h-full max-h-full ms-auto me-auto"></div>
+
+        <!--contenido-->
+        <div class="border-slate-300/10 flex flex-row justify-center md:pl-52 container">
+            <div class="flex fixed md:left-56 top-20 bg-gradient-to-br from-cyan-900 to-cyan-600 rounded-lg justify-between">   
+                <label for="" class="text-white font-bold font-mono p-2 uppercase">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                        <path d="M21 21l-6 -6" />
+                      </svg>
+                </label>
+                <input
+                    type="search"
+                    id="buscar"
+                    name="buscar"
+                    class="rounded-lg mx-2 my-1 text-lg px-2 w-2/4"">
+
+                <button id="exportarPDF" class="text-white font-bold font-mono p-2 hover:bg-blue-400 rounded-lg uppercase">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6 icon icon-tabler icon-tabler-file-type-pdf" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+                        <path d="M5 18h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" />
+                        <path d="M17 18h2" />
+                        <path d="M20 15h-3v6" />
+                        <path d="M11 15v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" />
+                        </svg>
+                </button>
+                <button id="exportarExcel" class="text-white font-bold font-mono p-2 hover:bg-blue-400 rounded-lg uppercase">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-spreadsheet" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                        <path d="M8 11h8v7h-8z" />
+                        <path d="M8 15h8" />
+                        <path d="M11 11v7" />
+                        </svg>
+                </button>
+            </div>
+            
+            <div class="container">
+                <main class="px-5 py-10">       
+                    <div class="flex flex-col mt-10">
+                        <div class="py-2 overflow-x-auto">
+                            <div class="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">
+                                <table class="min-w-full">
+                                    <thead class="bg-gradient-to-br from-cyan-900 to-cyan-600">
+                                        <tr>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Marca
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Modelo
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Año
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Placa
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Mantenimiento
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Fecha programada
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Fecha de cierre
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Resultado
+                                            </th>
+                                            <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-white uppercase tracking-wider">
+                                                Accion
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listado-Mantenimiento"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div> 
+        </div>
+
+    <!--menu modal-->
+    <div id="menu" class="p-4 self-start text-lg hidden"></div>
+    <div id="menu2" class="text-lg rounded-lg h-32 w-32 fixed top-16 right-10 bottom-0 hidden"></div>
+    
+    <script src="../components/nav.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
