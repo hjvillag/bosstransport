@@ -36,7 +36,7 @@ userRouter.post('/', async (request, response) => {
         });
 
         // Configurar el correo electrónico
-        const verificationLink = `http://localhost:3000/verify?token=${verificationToken}`
+        const verificationLink = `https://bosstransport.onrender.com//verify?token=${verificationToken}`
         const mailOptions = {
             from: '',
             to: email,
