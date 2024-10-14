@@ -7,6 +7,14 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Boss Transport | Login</title>
+    <style>
+        @media only screen and (max-width: 500px) {
+            .g-recaptcha {
+                transform: scale(0.77);
+                transform-origin: 0 0;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gradient-to-br from-cyan-950 to-black/95 min-h-screen">   
     <div class="h-16">
@@ -61,7 +69,7 @@
                     class="rounded-lg p-2 focus:outline-blue-600 w-full">
             </div>
 
-            <div class="g-recaptcha ml-8 w-full max-w-full min-w-screen h-auto max-h-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" data-sitekey="6LdL4l8qAAAAAKxVE4hvnA1khkX3ijmDezqrsJ8L"></div>
+            <div class="g-recaptcha ml-8" data-sitekey="6LdL4l8qAAAAAKxVE4hvnA1khkX3ijmDezqrsJ8L"></div>
 
             <a href="/login/recuperar.html" class="text-white font-bold py-2 px-4 hover:bg-blue-400 rounded-lg transition ease-in-out">Olvidé mi contraseña</a>
 
