@@ -7,11 +7,23 @@ const user = require('../models/usuario')
 
 //Generar una contraseña aleatoria
 function generarContraseñaAleatoria() {
-    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*()';
+    const mayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const minusculas = 'abcdefghijklmnopqrstuvwxyz';
+    const numeros = '0123456789';
+    const especiales = '!@#$%&*()';
+    const todosCaracteres = mayusculas + minusculas + numeros + especiales;
+
     let contraseña = '';
-    for (let i = 0; i < 12; i++) {
-        contraseña += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    contraseña += mayusculas.charAt(Math.floor(Math.random() * mayusculas.length));
+    contraseña += numeros.charAt(Math.floor(Math.random() * numeros.length));
+    contraseña += especiales.charAt(Math.floor(Math.random() * especiales.length));
+
+    for (let i = 3; i < 12; i++) {
+        contraseña += todosCaracteres.charAt(Math.floor(Math.random() * todosCaracteres.length));
     }
+
+    contraseña = contraseña.split('').sort(() => 0.5 - Math.random()).join('');
+
     return contraseña;
 }
 
