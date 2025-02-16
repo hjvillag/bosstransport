@@ -53,7 +53,7 @@ Henry Villa || © Copyright 2024. Todos los derechos reservados. Caracas - Venez
 
 ## Agradecimientos
 
-Gracias a todas las personas que creyeron y apoyaron en la realización de este proyecto. Gracias a EDTécnica por suministrarnos el espacio y las herramientras. Gracias Prof. Elizabeth Guerrero por enseñarnos todo lo que aprendimos a lo largo del curso y motivarnos a lograr alcanzar esta meta.
+Gracias a todas las personas que creyeron y apoyaron en la realización de este proyecto.
 
 ## Credenciales de acceso administrador
 
