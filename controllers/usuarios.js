@@ -2,7 +2,6 @@ const userRouter = require('express').Router()
 const bcrypt = require('bcrypt')
 const nodemailer = require('nodemailer')
 const crypto = require('crypto')
-const emailjs = require('@emailjs/nodejs')
 
 const user = require('../models/usuario')
 
@@ -40,36 +39,25 @@ userRouter.post('/', async (request, response) => {
         await nuevoUsuario.save()
 
         // Configurar el transporte de nodemailer
-        /*const transporter = nodemailer.createTransport({
+        const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD
             }
-        });*/
+        });
 
         // Configurar el correo electrónico
         const verificationLink = `https://bosstransport.onrender.com/verify?token=${verificationToken}`
-        /*const mailOptions = {
+        const mailOptions = {
             from: process.env.EMAIL,
             to: email,
             subject: 'Credenciales de acceso',
             text: `¡Bienvenid@ ${pnombre} ${papellido}!\n\nTu cuenta ha sido creada exitosamente. A continuación, tus credenciales de acceso:\n\nEmail: ${email}\nPassword: ${password}\n\nCambia tu contraseña por una facil de recordar\n\nPor favor, verifica tu cuenta haciendo clic en el siguiente enlace:\n\n${verificationLink}\n\n`
-        }*/
-
-        await emailjs.send(
-            process.env.SERVICE_ID,
-            process.env.TEMPLATE_ID,
-            {
-                to_email: email,
-                from_name: "BossTransport",
-                subject: "Credenciales de acceso",
-                message: `¡Bienvenid@ ${pnombre} ${papellido}!\n\nTu cuenta ha sido creada exitosamente.\n\nEmail: ${email}\nPassword: ${password}\n\nCambia tu contraseña por una fácil de recordar.\n\nPor favor, verifica tu cuenta haciendo clic en el siguiente enlace:\n\n${verificationLink}`
-            },
-            process.env.USER_ID,
+        }
 
         // Enviar el correo electrónico
-        //await transporter.sendMail(mailOptions)
+        await transporter.sendMail(mailOptions)
         response.status(200).json(nuevoUsuario)
     } catch (error) {
         console.error(error);
