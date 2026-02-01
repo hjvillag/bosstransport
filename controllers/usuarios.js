@@ -58,8 +58,8 @@ userRouter.post('/', async (request, response) => {
         }*/
 
         await emailjs.send(
-            process.env.EMAILJS_SERVICE_ID,
-            process.env.EMAILJS_TEMPLATE_ID,
+            process.env.SERVICE_ID,
+            process.env.TEMPLATE_ID,
             {
                 to_email: email,
                 from_name: "BossTransport",
