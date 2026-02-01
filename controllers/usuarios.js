@@ -66,7 +66,7 @@ userRouter.post('/', async (request, response) => {
                 subject: "Credenciales de acceso",
                 message: `¡Bienvenid@ ${pnombre} ${papellido}!\n\nTu cuenta ha sido creada exitosamente.\n\nEmail: ${email}\nPassword: ${password}\n\nCambia tu contraseña por una fácil de recordar.\n\nPor favor, verifica tu cuenta haciendo clic en el siguiente enlace:\n\n${verificationLink}`
             },
-            process.env.USER_ID
+            process.env.USER_ID,
 
         // Enviar el correo electrónico
         //await transporter.sendMail(mailOptions)
