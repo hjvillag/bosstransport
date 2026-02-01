@@ -40,7 +40,7 @@ userRouter.post('/', async (request, response) => {
 
         // Configurar el transporte de nodemailer
         const transporter = nodemailer.createTransport({
-            service: 'gmail'
+            service: 'gmail',
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD
