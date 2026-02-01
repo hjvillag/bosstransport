@@ -40,7 +40,9 @@ userRouter.post('/', async (request, response) => {
 
         // Configurar el transporte de nodemailer
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD
@@ -50,7 +52,7 @@ userRouter.post('/', async (request, response) => {
         // Configurar el correo electrónico
         const verificationLink = `https://bosstransport.onrender.com/verify?token=${verificationToken}`
         const mailOptions = {
-            from: '',
+            from: process.env.EMAIL,
             to: email,
             subject: 'Credenciales de acceso',
             text: `¡Bienvenid@ ${pnombre} ${papellido}!\n\nTu cuenta ha sido creada exitosamente. A continuación, tus credenciales de acceso:\n\nEmail: ${email}\nPassword: ${password}\n\nCambia tu contraseña por una facil de recordar\n\nPor favor, verifica tu cuenta haciendo clic en el siguiente enlace:\n\n${verificationLink}\n\n`
