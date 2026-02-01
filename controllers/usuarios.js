@@ -2,7 +2,7 @@ const userRouter = require('express').Router()
 const bcrypt = require('bcrypt')
 const nodemailer = require('nodemailer')
 const crypto = require('crypto')
-const emailjs = require('emailjs-com');
+const emailjs = require('@emailjs/nodejs')
 
 const user = require('../models/usuario')
 
